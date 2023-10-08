@@ -19,14 +19,13 @@ fi
 
 ROOT=$(pwd)
 
-cd $ROOT
-
-if [ ! -z "$(ls -A .)" ];
+if [ ! -z "$(ls -A $ROOT)" ];
 then
     echo 'Error: This script only works in an empty directory.'; exit 1;
 fi
 
 echo 'Downloading WordPress...'
+cd $ROOT
 wget -q https://wordpress.org/latest.zip &> /dev/null
 unzip -qq latest.zip
 mv wordpress/* .
@@ -51,7 +50,7 @@ echo 'Downloading Adminer installer...'
 mkdir $ROOT/adminer
 cd $ROOT/adminer
 wget -q https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/adminer/install.sh &> /dev/null
-chmod +x ./install.sh
+chmod +x $ROOT/adminer/install.sh
 
 echo 'Finishing...'
 cd $ROOT
