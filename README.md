@@ -19,3 +19,8 @@ https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/install
 ```
 
 Then, run `./start-server` and access http://localhost:8080 in your browser.
+
+## Features
+
+- Create a new WordPress without webserver (apache, nginx, etc) or MySQL.
+- Setup an Adminer database editor with autologin
