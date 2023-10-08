@@ -32,6 +32,7 @@ unzip -qq latest.zip
 mv wordpress/* .
 rm -rf latest.zip
 rm -rf wordpress
+wget -q https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/wp-config.php  &> /dev/null
 
 cd $ROOT/wp-content/plugins/
 
@@ -42,16 +43,20 @@ rm -rf sqlite-database-integration.zip
 
 PLUGIN_DIR="$ROOT/wp-content/plugins/sqlite-database-integration"
 
-echo 'Finishing...'
 cp $PLUGIN_DIR/db.copy $ROOT/wp-content/db.php
 sed -i "s#{SQLITE_IMPLEMENTATION_FOLDER_PATH}#$PLUGIN_DIR#" $ROOT/wp-content/db.php
 sed -i 's#{SQLITE_PLUGIN}#sqlite-database-integration/load.php#' $ROOT/wp-content/db.php
 
-cd $ROOT
-wget -q https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/wp-config.php  &> /dev/null
+echo 'Downloading Adminer installer...'
+mkdir $ROOT/adminer
+cd $ROOT/adminer
+wget -q https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/adminer/install.sh &> /dev/null
 
+echo 'Finishing...'
+cd $ROOT
 echo "php -S localhost:8080" > $ROOT/start-server.sh
 chmod +x $ROOT/start-server.sh
 
 echo 'DONE!'
 echo 'Run ./start-server.sh to start your WordPress server'
+echo 'Optional: run ./adminer/install.sh to install and setup Adminer database editor'
