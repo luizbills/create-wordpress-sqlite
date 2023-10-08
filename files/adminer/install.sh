@@ -9,7 +9,7 @@ cd $RELATIVE_DIR
 ADMINER_VERSION='4.8.1'
 ADMINER_URL="https://github.com/vrana/adminer/releases/download/v$ADMINER_VERSION/adminer-$ADMINER_VERSION.php"
 
-echo "Downloading Adminer v$ADMINER_VERSION"
+echo "Downloading Adminer v$ADMINER_VERSION..."
 
 wget -q -O - $ADMINER_URL > adminer-editor.php
 wget -q https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/adminer/index.php
