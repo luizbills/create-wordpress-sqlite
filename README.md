@@ -1,5 +1,7 @@
 # Create WordPress with SQLite
 
+Create a blank WordPress with SQLite Database.
+
 ## Requirements
 
 - Bash terminal
