@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+set -e
+
+if ! type "php" &> /dev/null;
+then
+    echo 'Error: "PHP" not installed'; exit 1;
+fi
+
+if ! type "unzip" &> /dev/null;
+then
+    echo 'Error: "unzip" not installed'; exit 1;
+fi
+
+if ! type "sed" &> /dev/null;
+then
+    echo 'Error: "sed" not installed'; exit 1;
+fi
+
+ROOT=$(pwd)
+
+cd $ROOT
+
+if [ ! -z "$(ls -A .)" ];
+then
+    echo 'Error: This script only works in an empty directory.'; exit 1;
+fi
+
+echo 'Downloading WordPress...'
+wget https://wordpress.org/latest.zip &> /dev/null
+unzip -qq latest.zip
+mv wordpress/* .
+rm -rf latest.zip
+rm -rf wordpress
+
+cd $ROOT/wp-content/plugins/
+
+echo 'Downloading SQLite Database Integration plugin...'
+wget https://downloads.wordpress.org/plugin/sqlite-database-integration.zip &> /dev/null
+unzip -qq sqlite-database-integration.zip
+rm -rf sqlite-database-integration.zip
+
+PLUGIN_DIR="$ROOT/wp-content/plugins/sqlite-database-integration"
+
+echo 'Finishing...'
+cp $PLUGIN_DIR/db.copy $ROOT/wp-content/db.php
+sed -i "s#{SQLITE_IMPLEMENTATION_FOLDER_PATH}#$PLUGIN_DIR#" $ROOT/wp-content/db.php
+sed -i 's#{SQLITE_PLUGIN}#sqlite-database-integration/load.php#' $ROOT/wp-content/db.php
+
+cd $ROOT
+wget https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/wp-config.php  &> /dev/null
+
+echo "php -S 0.0.0.0:8080" > $ROOT/start-server.sh
+chmod +x $ROOT/start-server.sh
+
+echo 'DONE!'
+echo 'Run ./start-server.sh to start your WordPress server'
