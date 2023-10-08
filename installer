@@ -50,7 +50,7 @@ sed -i 's#{SQLITE_PLUGIN}#sqlite-database-integration/load.php#' $ROOT/wp-conten
 cd $ROOT
 wget https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/wp-config.php  &> /dev/null
 
-echo "php -S 0.0.0.0:8080" > $ROOT/start-server.sh
+echo "php -S localhost:8080" > $ROOT/start-server.sh
 chmod +x $ROOT/start-server.sh
 
 echo 'DONE!'
