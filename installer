@@ -51,7 +51,7 @@ echo 'Downloading Adminer installer...'
 mkdir $ROOT/adminer
 cd $ROOT/adminer
 wget -q https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/adminer/install.sh &> /dev/null
-chmod +x $ROOT/adminer/install.sh
+chmod +x ./install.sh
 
 echo 'Finishing...'
 cd $ROOT
