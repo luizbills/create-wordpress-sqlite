@@ -11,10 +11,7 @@
 ## Install
 
 ```sh
-wget -qO create-wordpress-sqlite \
-  https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/installer \
-  && bash create-wordpress-sqlite
-  && rm create-wordpress-sqlite
+wget -q -O - https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/installer | bash
 ```
 
 Then, run `./start-server` and access http://localhost:8080 in your browser.
