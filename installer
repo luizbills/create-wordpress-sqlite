@@ -27,7 +27,7 @@ then
 fi
 
 echo 'Downloading WordPress...'
-wget https://wordpress.org/latest.zip &> /dev/null
+wget -q https://wordpress.org/latest.zip &> /dev/null
 unzip -qq latest.zip
 mv wordpress/* .
 rm -rf latest.zip
@@ -36,7 +36,7 @@ rm -rf wordpress
 cd $ROOT/wp-content/plugins/
 
 echo 'Downloading SQLite Database Integration plugin...'
-wget https://downloads.wordpress.org/plugin/sqlite-database-integration.zip &> /dev/null
+wget -q https://downloads.wordpress.org/plugin/sqlite-database-integration.zip &> /dev/null
 unzip -qq sqlite-database-integration.zip
 rm -rf sqlite-database-integration.zip
 
@@ -48,7 +48,7 @@ sed -i "s#{SQLITE_IMPLEMENTATION_FOLDER_PATH}#$PLUGIN_DIR#" $ROOT/wp-content/db.
 sed -i 's#{SQLITE_PLUGIN}#sqlite-database-integration/load.php#' $ROOT/wp-content/db.php
 
 cd $ROOT
-wget https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/wp-config.php  &> /dev/null
+wget -q https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/wp-config.php  &> /dev/null
 
 echo "php -S localhost:8080" > $ROOT/start-server.sh
 chmod +x $ROOT/start-server.sh
