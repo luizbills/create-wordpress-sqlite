@@ -17,4 +17,4 @@ wget -qO create-wordpress-sqlite \
   && rm create-wordpress-sqlite
 ```
 
-Then, access http://localhost:8080 in your browser.
+Then, run `./start-server` and access http://localhost:8080 in your browser.
