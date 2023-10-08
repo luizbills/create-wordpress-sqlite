@@ -1,8 +1,8 @@
 <?php
 
 if ( 'localhost' !== $_SERVER['SERVER_NAME'] ) {
-    http_response_code(400);
-    echo '<meta name="robots" content="noindex, nofollow" />';
+	http_response_code(400);
+	echo '<meta name="robots" content="noindex, nofollow" />';
 	echo '<h1>For security, your Adminer is only available in your localhost. Also, is highly recommended that you delete the adminer folder when in production.</h1>';
 	die;
 }
@@ -22,13 +22,13 @@ function adminer_object() {
 }
 
 if (empty($_SERVER['QUERY_STRING']) || empty($_COOKIE['adminer_permanent'])) {
-    $_POST['auth'] = [
-        'driver'    => 'sqlite',
-        'username'  => '',
-        'password'  => '',
-        'db'        => dirname( __DIR__ ) . '/wp-content/database/.ht.sqlite',
-        'permanent' => 1,
-    ];
+	$_POST['auth'] = [
+		'driver'    => 'sqlite',
+		'username'  => '',
+		'password'  => '',
+		'db'        => dirname( __DIR__ ) . '/wp-content/database/.ht.sqlite',
+		'permanent' => 1,
+	];
 }
 
 include __DIR__ . "/adminer-editor.php";
