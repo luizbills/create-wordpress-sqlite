@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Adminer installer (Not installed by default)
-# You should run this script manually if you want
+# You should run this script manually
 
 RELATIVE_DIR=$(dirname "${BASH_SOURCE[0]}")
 cd $RELATIVE_DIR
