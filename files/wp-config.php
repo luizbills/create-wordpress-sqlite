@@ -21,6 +21,7 @@ define( 'NONCE_SALT',       'put your unique phrase here' );
 define( 'WP_DEBUG', false );
 // define( 'WP_DEBUG_LOG', true );
 // define( 'WP_DEBUG_DISPLAY', false );
+// define( 'SCRIPT_DEBUG', true );
 
 
 /* That's all, stop editing! Happy publishing. */
