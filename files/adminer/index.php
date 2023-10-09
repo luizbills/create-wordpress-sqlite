@@ -1,6 +1,6 @@
 <?php
 
-if ( 'localhost' !== $_SERVER['SERVER_NAME'] ) {
+if ( ! in_array( $_SERVER['SERVER_NAME'], ['localhost','127.0.0.1'] ) ) {
 	http_response_code(400);
 	echo '<meta name="robots" content="noindex, nofollow" />';
 	echo '<h1>For security, your Adminer is only available in your localhost. Also, is highly recommended that you delete the adminer folder when in production.</h1>';
