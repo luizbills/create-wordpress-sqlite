@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # Adminer installer (Not installed by default)
 # You should run this script manually
 

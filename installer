@@ -49,12 +49,12 @@ sed -i 's#{SQLITE_PLUGIN}#sqlite-database-integration/load.php#' $ROOT/wp-conten
 echo 'Downloading Adminer installer...'
 mkdir $ROOT/adminer
 cd $ROOT/adminer
-wget -q https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/adminer/install.sh &> /dev/null
+wget -q https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/adminer/install &> /dev/null
 chmod +x $ROOT/adminer/install.sh
 
 echo 'Finishing...'
 cd $ROOT
-echo "php -S localhost:8080" > $ROOT/start-server.sh
+wget -q https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/start-server.sh &> /dev/null
 chmod +x $ROOT/start-server.sh
 
 echo 'DONE!'
