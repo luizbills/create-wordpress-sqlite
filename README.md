@@ -18,7 +18,7 @@ https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/install
 | bash
 ```
 
-Then, run `./start-server` and access http://localhost:8080 in your browser.
+Then, run `./start-server.sh` and access http://localhost:8080 in your browser.
 
 ## Features
 
