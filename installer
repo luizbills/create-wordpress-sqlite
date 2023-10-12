@@ -62,6 +62,7 @@ echo 'Finishing...'
 cd $ROOT
 wget -q https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/start-server.sh &> /dev/null
 chmod +x $ROOT/start-server.sh
+wget -q https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/server.cfg &> /dev/null
 
 echo 'DONE!'
 echo 'Run ./start-server.sh to start your WordPress server'
