@@ -21,5 +21,5 @@ echo -e "\e[32mDevelopment Server started: http://localhost:$PORT\e[0m"
 
 if type "xdg-open" &> /dev/null;
 then
-	xdg-open http://$URL &> /dev/null;
+	xdg-open http://$URL/wp-admin/index.php &> /dev/null;
 fi
