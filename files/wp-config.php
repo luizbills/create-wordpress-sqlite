@@ -17,12 +17,15 @@ define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
 define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
 define( 'NONCE_SALT',       'put your unique phrase here' );
 
-
 define( 'WP_DEBUG', false );
 // define( 'WP_DEBUG_LOG', true );
 // define( 'WP_DEBUG_DISPLAY', false );
 // define( 'SCRIPT_DEBUG', true );
 
+if ( isset( $_ENV['WP_HOME'] ) ) {
+	define('WP_HOME', $_ENV['WP_HOME'] );
+	define('WP_SITEURL', $_ENV['WP_HOME'] );
+}
 
 /* That's all, stop editing! Happy publishing. */
 /** Absolute path to the WordPress directory. */

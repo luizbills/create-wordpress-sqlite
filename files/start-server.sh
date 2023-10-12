@@ -1,12 +1,11 @@
 set -e
 
-RELATIVE_DIR=$(dirname "${BASH_SOURCE[0]}")
-cd $RELATIVE_DIR
-DIR=$(pwd)
-PORT=${1:-"8080"}
-HOST='127.0.0.1'
+source server.cfg
+
 URL="$HOST:$PORT"
-PHP="php"
+
+cd $(dirname "${BASH_SOURCE[0]}")
+SERVER_ROOT=$(pwd)
 
 echo "Starting webserver..."
 
@@ -16,10 +15,11 @@ then
 	pkill -f "$PHP -S $URL"
 fi
 
-$PHP -S $URL -t $DIR &> /dev/null &
-echo -e "\e[32mDevelopment Server started: http://localhost:$PORT\e[0m"
+WP_HOME="http://$URL" $PHP -S $URL -d variables_order=EGPCS -t $SERVER_ROOT &> /dev/null &
+
+echo -e "\e[32mDevelopment Server started: http://$URL\e[0m"
 
 if type "xdg-open" &> /dev/null;
 then
-	xdg-open http://$URL/wp-admin/index.php &> /dev/null;
+	xdg-open http://$URL$OPEN_PATH &> /dev/null;
 fi

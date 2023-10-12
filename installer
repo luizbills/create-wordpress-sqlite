@@ -21,10 +21,10 @@ ROOT=$(pwd)
 
 if [ ! -z "$(ls -A $ROOT)" ];
 then
-    echo 'Error: This script only works in an empty directory.'; exit 1;
+    echo 'Error: This script only works inside an empty directory.'; exit 1;
 fi
 
-echo 'Downloading WordPress...'
+echo 'Downloading lastest WordPress...'
 cd $ROOT
 wget -q https://wordpress.org/latest.zip &> /dev/null
 unzip -qq latest.zip
@@ -33,9 +33,15 @@ rm -rf latest.zip
 rm -rf wordpress
 wget -q https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/wp-config.php  &> /dev/null
 
-cd $ROOT/wp-content/plugins/
+# Download the database
+# Default user is "admin" with password "pass"
+mkdir -p $ROOT/wp-content/database
+cd $ROOT/wp-content/database
+wget -q https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/files/db.sqlite  &> /dev/null
+mv db.sqlite .ht.sqlite
 
 echo 'Downloading SQLite Database Integration plugin...'
+cd $ROOT/wp-content/plugins/
 wget -q https://downloads.wordpress.org/plugin/sqlite-database-integration.zip &> /dev/null
 unzip -qq sqlite-database-integration.zip
 rm -rf sqlite-database-integration.zip
