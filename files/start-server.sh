@@ -1,13 +1,13 @@
 set -e
 
-source server.cfg
-
-URL="$HOST:$PORT"
-
 cd $(dirname "${BASH_SOURCE[0]}")
 SERVER_ROOT=$(pwd)
 
+source $SERVER_ROOT/server.cfg
+
 echo "Starting webserver..."
+
+URL="$HOST:$PORT"
 
 # close port if necessary
 if grep "$PHP -S $URL" <<< $(ps aux) &> /dev/null;
