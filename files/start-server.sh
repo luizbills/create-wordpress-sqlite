@@ -13,7 +13,7 @@ echo "Starting webserver..."
 # close port if necessary
 if grep "$PHP -S $URL" <<< $(ps aux) &> /dev/null;
 then
-	pkill -f "$URL"
+	pkill -f "$PHP -S $URL"
 fi
 
 $PHP -S $URL -t $DIR &> /dev/null &
