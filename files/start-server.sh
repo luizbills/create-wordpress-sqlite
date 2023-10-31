@@ -15,7 +15,12 @@ then
 	pkill -f "$PHP -S $URL"
 fi
 
-WP_HOME="http://$URL" $PHP -S $URL -d variables_order=EGPCS -t $SERVER_ROOT &> /dev/null &
+if [ ! -f $SERVER_ROOT/php.ini ];
+then
+	echo "" > $SERVER_ROOT/php.ini;
+fi
+
+WP_HOME="http://$URL" $PHP -S $URL -c "php.ini" -d variables_order=EGPCS &> /dev/null &
 
 echo -e "\e[32mDevelopment Server started: http://$URL\e[0m"
 
