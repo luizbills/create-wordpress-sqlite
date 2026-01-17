@@ -20,7 +20,7 @@ https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/install
 | bash
 ```
 
-Then, just run `./start-server.sh` to start the webserver and access http://localhost:8080
+2. Now run `./start-server.sh` to start the webserver and access http://localhost:8080
 
 The default user is:
 
