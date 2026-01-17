@@ -22,10 +22,14 @@ https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/install
 
 2. Now run `./start-server.sh` to start the webserver and access http://localhost:8080
 
-The default user is:
+> - default username: `admin`
+> - default password: `pass`
 
-- username: `admin`
-- password: `pass`
+3. Optional: Install [Adminer](https://www.adminer.org/en/):
+
+```sh
+./adminer/install.sh
+```
 
 ## Features
 
