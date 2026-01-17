@@ -12,6 +12,8 @@ Create a blank WordPress with SQLite Database.
 
 ## Install
 
+1. Create a empty directory and execute the following script:
+
 ```sh
 wget -q -O - \
 https://raw.githubusercontent.com/luizbills/create-wordpress-sqlite/main/installer \
