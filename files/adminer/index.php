@@ -8,7 +8,7 @@ if ( ! in_array( $_SERVER['SERVER_NAME'], ['localhost','127.0.0.1'] ) ) {
 }
 
 function adminer_object() {
-	class AdminerSQLitePasswordLess extends Adminer {
+	class AdminerSQLitePasswordLess extends Adminer\Adminer {
 		function permanentLogin($create = false) {
 			return md5(date('Y-m-d')); // key used for permanent login
 		}

@@ -6,7 +6,7 @@
 RELATIVE_DIR=$(dirname "${BASH_SOURCE[0]}")
 cd $RELATIVE_DIR
 
-ADMINER_VERSION='4.8.1'
+ADMINER_VERSION='5.4.1'
 ADMINER_URL="https://github.com/vrana/adminer/releases/download/v$ADMINER_VERSION/adminer-$ADMINER_VERSION.php"
 
 echo "Downloading Adminer v$ADMINER_VERSION..."
